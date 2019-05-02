@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ActChange : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,10 +13,10 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool Act = false;
+        Animator Animtor = GetComponent<Animator>();
+        bool Act = Animtor.GetBool("Act");
         if (Input.GetKeyDown(KeyCode.Space)) {
-            Act = true;
+            Animtor.SetBool("Act", (Act == true) ? false : true);
         }
-        GetComponent<Animator>().SetBool("Act", Act);
     }
 }
