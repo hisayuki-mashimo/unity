@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MazeGenerator.cs" />
+    <Compile Include="Assets\Miner.cs" />
     <Compile Include="Assets\Transform.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/hisayuki-mashimo/works/unity/Buta/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
