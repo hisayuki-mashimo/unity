@@ -91,6 +91,8 @@ public class MazeOperator : MonoBehaviour {
       }
     }
 
+    GameObject.Destroy(GameObject.Find(this._convertPositionToId(0, 0) + Direction.T));
+
     this.Make();
   }
 
@@ -310,7 +312,9 @@ public class MazeOperator : MonoBehaviour {
 
     System.Random randomizer = new System.Random();
 
-Debug.Log(randomizer);
+    // TODO 何故かログ出力をしないと初回返却値がキャッシュされる?
+    Debug.Log(randomizer);
+
     return directions.OrderBy(direction => randomizer.Next(4)).ToList();
   }
 
