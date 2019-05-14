@@ -41,6 +41,8 @@ public class MazeOperator : MonoBehaviour {
   int _group_id = 0;
   List<string> _rest_block_ids = new List<string>();
 
+  System.Random randomizer = new System.Random();
+
   void Start() {
     Vector3 pos = new Vector3(0, 0, 0);
 
@@ -187,7 +189,7 @@ public class MazeOperator : MonoBehaviour {
   void _pickBlock() {
     this._direction = null;
 
-    int rand_number = new System.Random().Next(0, this._rest_block_ids.Count() - 1);
+    int rand_number = this.randomizer.Next(0, this._rest_block_ids.Count() - 1);
 
     this._block_id = this._rest_block_ids[rand_number];
 
@@ -310,12 +312,7 @@ public class MazeOperator : MonoBehaviour {
 
     if (!random) return directions;
 
-    System.Random randomizer = new System.Random();
-
-    // TODO 何故かログ出力をしないと初回返却値がキャッシュされる?
-    Debug.Log(randomizer);
-
-    return directions.OrderBy(direction => randomizer.Next(4)).ToList();
+    return directions.OrderBy(direction => this.randomizer.Next(4)).ToList();
   }
 
   Direction _getBackDirection(Direction direction) {
